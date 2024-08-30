@@ -1,0 +1,76 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// Modern Theme
+
+:root {
+  --primary: #6c63ff; // Um roxo vibrante que traz modernidade e tecnologia
+  --secondary: #f95f62; // Um tom coral que contrasta bem com o roxo
+  --background: #f4f4f9; // Um fundo claro e suave para melhorar a leitura
+  --accent: #ff8a00; // Um laranja vibrante para elementos de destaque
+  --accentOrange: #ffb347; // Um laranja suave para combinações e realces
+  --white: #ffffff; // Padrão branco
+  --dark: #2d2e32; // Um cinza escuro moderno para elementos de texto e ícones
+  --darkGray: #4a4b52; // Um tom intermediário de cinza
+  --black: #1b1c1e; // Preto para contrastes elevados
+  --darkBackground: #3b3c41; // Um fundo escuro moderno e elegante
+  --darkLight: #6e6f78; // Um cinza claro para textos e ícones secundários
+  --dark333: #333; // Um cinza intermediário
+  --whiteDDD: #ddd; // Um branco acinzentado para bordas e linhas
+  --matrConflit: #ff4b5c; // Vermelho para representar conflitos de forma clara
+  --matrCard: #6c63ff; // Usando a cor primária para manter consistência
+  --matrCardBg: #e3e7ff; // Fundo suave para cards que complementa a cor primária
+  --matrCardConflit: #ff4b5c; // Mesmo vermelho para manter coesão visual
+  --matrCardConflitBg: #ffe7e7; // Um fundo claro que realça o vermelho dos conflitos
+  --positive: #28c76f; // Verde moderno para feedback positivo
+  --negative: #ea5455; // Vermelho vibrante para feedback negativo
+  --warning: #ff9f43; // Laranja para alertas que chamam atenção
+  --info: #00cfe8; // Azul claro e vibrante para informações
+
+  // CORES PARA OS CARDS DE DISCIPLINAS:
+  --teal-1: #6c63ff; // Usando a cor primária para consistência
+  --teal-2: #f95f62; // Usando a cor secundária para variação
+  --teal-3: #ff8a00; // Usando o accent para destaque
+  --teal-4: #28c76f; // Verde para uma variação contrastante
+  --teal-5: #00cfe8; // Azul para variações frias
+  --teal-6: #f4f4f9; // Fundo claro que combina com o background principal
+  --teal-7: #2d2e32; // Cinza escuro para contraste com o fundo claro
+}
+
+$primary: var(--primary);
+$secondary: var(--secondary);
+$background: var(--background);
+
+$accent: var(--accent);
+$accentOrange: var(--accentOrange);
+$white: var(--white);
+
+$dark: var(--dark);
+$darkGray: var(--darkGray);
+$black: var(--black);
+$darkBackground: var(--darkBackground);
+$darkLight: var(--darkLight);
+
+$dark333: var(--dark333);
+$whiteDDD: var(--whiteDDD);
+
+$matrConflit: var(--matrConflit);
+$matrCard: var(--matrCard);
+$matrCardBg: var(--matrCardBg);
+$matrCardConflit: var(--matrCardConflit);
+$matrCardConflitBg: var(--matrCardConflitBg);
+
+$positive: var(--positive);
+$negative: var(--negative);
+$warning: var(--warning);
+$info: var(--info);
+
+// CORES PARA OS CARDS DE DISCIPLINAS:
+$teal-1: var(--teal-1);
+$teal-2: var(--teal-2);
+$teal-3: var(--teal-3);
+$teal-4: var(--teal-4);
+$teal-5: var(--teal-5);
+$teal-6: var(--teal-6);
+$teal-7: var(--teal-7);
+
+$fontPagesErro: 'Encode Sans Semi Condensed', Verdana, sans-serif;
