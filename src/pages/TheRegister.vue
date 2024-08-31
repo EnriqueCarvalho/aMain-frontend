@@ -7,12 +7,12 @@
       <div class="flex space-x-10">
         <div class="bg-card-bg text-gray-600 text-center p-10 rounded-lg cursor-pointer transition overflow-hidden"
           @click="navigateTo('paciente')">
-          <img src="/public/assets/paciente_register.png" style="width: 20em;" />
-          <h1 class="text-bold text-4xl">Paciente</h1>
+          <img src="/src/assets/paciente_register.svg" style="width: 20em;" />
+          <h1 class="text-bold text-4xl paciente-title">Paciente</h1>
         </div>
         <div class="bg-card-bg text-gray-600 text-center p-10 rounded-lg cursor-pointer transition"
           @click="navigateTo('profissional')">
-          <img src="/public/assets/profissional_register.png" style="width: 16em;" />
+          <img src="/src/assets/profissional_register.svg" style="width: 20em;" />
           <h1 class="text-bold text-4xl">Profissional</h1>
         </div>
       </div>
@@ -41,5 +41,8 @@ const onCancel = () => {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.paciente-title{
+  padding-top: 45px;
 }
 </style>
