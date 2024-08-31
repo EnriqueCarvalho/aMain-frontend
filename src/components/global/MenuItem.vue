@@ -11,7 +11,7 @@
 import { defineProps } from 'vue';
 const props = defineProps<{
   icon: string;
-  label: string;
+  label?: string;
 }>();
 </script>
 

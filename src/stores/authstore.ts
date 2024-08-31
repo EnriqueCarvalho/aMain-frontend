@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { LocalStorageService } from '../services/LocalStorageService';
 import { ILogin } from 'src/types/models/ILogin';
 import instance from 'src/services/interceptor/interceptor';
+import router from 'src/router';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
