@@ -3,7 +3,7 @@
 // Modern Theme
 
 :root {
-  --primary: #6c63ff; // Um roxo vibrante que traz modernidade e tecnologia
+  --primary: #1085bb; // Um roxo vibrante que traz modernidade e tecnologia
   --secondary: #f95f62; // Um tom coral que contrasta bem com o roxo
   --background: #f4f4f9; // Um fundo claro e suave para melhorar a leitura
   --accent: #ff8a00; // Um laranja vibrante para elementos de destaque
@@ -18,7 +18,7 @@
   --whiteDDD: #ddd; // Um branco acinzentado para bordas e linhas
   --matrConflit: #ff4b5c; // Vermelho para representar conflitos de forma clara
   --matrCard: #6c63ff; // Usando a cor primária para manter consistência
-  --matrCardBg: #e3e7ff; // Fundo suave para cards que complementa a cor primária
+  --cardBg: #e3e7ff; // Fundo suave para cards que complementa a cor primária
   --matrCardConflit: #ff4b5c; // Mesmo vermelho para manter coesão visual
   --matrCardConflitBg: #ffe7e7; // Um fundo claro que realça o vermelho dos conflitos
   --positive: #28c76f; // Verde moderno para feedback positivo
@@ -55,7 +55,7 @@ $whiteDDD: var(--whiteDDD);
 
 $matrConflit: var(--matrConflit);
 $matrCard: var(--matrCard);
-$matrCardBg: var(--matrCardBg);
+$cardBg: var(--cardBg);
 $matrCardConflit: var(--matrCardConflit);
 $matrCardConflitBg: var(--matrCardConflitBg);
 
