@@ -24,9 +24,18 @@ export const useAuthStore = defineStore('auth', {
       LocalStorageService.remove('user');
       LocalStorageService.remove('token');
     },
-    async register(data) {
+    async registerPaciente(data) {
       try {
         const response = await instance.post('/usuario/cadastro/paciente', data);
+        return response.data;
+      } catch (error) {
+        console.error('Erro ao cadastrar usuário:', error);
+        throw error;
+      }
+    },
+    async registerProfissional(data) {
+      try {
+        const response = await instance.post('/usuario/cadastro/profissional', data);
         return response.data;
       } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);

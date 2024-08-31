@@ -7,15 +7,13 @@ export async function login(data: ILogin, manterConectado: boolean) {
   try {
     const response = await instance.post('/usuario/login', data);
     if (response.data) {
-      this.user = response.data;
-      this.token = response.data.accessToken;
+      const user = response.data;
+      const token = response.data.accessToken;
 
-      if (manterConectado) {
-        LocalStorageService.save('user', this.user);
-        LocalStorageService.save('token', this.token);
-      }
+      LocalStorageService.save('user', user);
+      LocalStorageService.save('token', token);
 
-      return this.user;
+      return user;
     }
   } catch (error) {
     console.error('Erro ao fazer login:', error);

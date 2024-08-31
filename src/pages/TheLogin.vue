@@ -1,14 +1,14 @@
 <template>
   <main class="grid grid-col grid-cols-1 lg:grid-cols-5 w-full h-full">
     <div class="col-span-3 h-screen relative flex items-center justify-center overflow-hidden" v-if="$q.screen.gt.sm">
-      <img src="/public/login.png" alt="imagem do login" class="w-[85%] h-auto object-cover" />
+      <img src="/public/assets/login.png" alt="imagem do login" class="w-[85%] h-auto object-cover" />
     </div>
     <div class="flex flex-col col-span-2 items-center justify-center w-full gap-5 h-screen lg:h-full">
       <div class="flex flex-col items-center justify-center w-full gap-5 h-full div-login">
-        <div class="bg-card-bg h-5/6 rounded-lg p-10 gap-4">
+        <div class="bg-card-bg h-5/6 rounded-lg p-15 gap-4">
           <div class="flex flex-col justify-start w-full">
             <div class="flex justify-center w-full">
-              <img src="/public/logo_app.png" alt="logo da empresa" class="w-[250px] h-auto" />
+              <img src="/public/assets/logo_app.png" alt="logo da empresa" class="w-[250px] h-auto" />
             </div>
           </div>
           <div class="pt-10">
@@ -34,8 +34,9 @@
               :label="$t('login.loginBtn')" size="lg" />
           </q-form>
 
-          <div>
-
+          <div class="p-0 m-0 text-center">
+            Não tem uma conta? <span @click="navigateToRegister()"
+              class="cursor-pointer underline text-green-700 font-bold">Registre-se</span>
           </div>
         </div>
       </div>
@@ -53,6 +54,7 @@ import { login } from 'src/services/AuthService';
 import { ILogin } from 'src/types/models/ILogin';
 import { useRouter } from 'vue-router';
 import { triggerNegative } from 'src/utils/NotificacaoUtil';
+import { route } from 'quasar/wrappers';
 
 defineOptions({ name: 'TheLogin' });
 
@@ -68,6 +70,9 @@ const formData = ref({
   password: ''
 });
 
+const navigateToRegister = () => {
+  $router.push({ name: 'register' });
+};
 
 
 const onSubmit = async () => {

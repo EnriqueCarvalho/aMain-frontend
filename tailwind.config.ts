@@ -7,6 +7,7 @@ const config = {
       colors: {
         'card-bg': '#f3f3f3',
         'dark-light': '#6e6f78',
+        'primary-green': '#A8D5BA'
       }
     },
     screens: {

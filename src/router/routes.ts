@@ -1,3 +1,4 @@
+import TheCadastro from 'src/pages/TheCadastro.vue';
 import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
@@ -10,13 +11,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/TheLogin.vue'),
   },
   {
+    name: 'register',
     path: '/register',
     component: () => import('pages/TheRegister.vue'),
   },
-  {
-    path: '/cadastro-paciente',
-    component: () => import('pages/CadastroPaciente.vue'),
-  },
+  { path: '/cadastro/:tipo', name: 'Cadastro', component: TheCadastro, props: true },
   {
     path: '/dashboard',
     component: () => import('layouts/MainLayout.vue'),
@@ -25,10 +24,10 @@ const routes: RouteRecordRaw[] = [
 
   // Always leave this as last one,
   // but you can also remove it
-  {
+  /* {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
-  },
+  }, */
 ];
 
 export default routes;
