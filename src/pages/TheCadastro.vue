@@ -60,9 +60,12 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from 'src/stores/authstore';
 import instance from 'src/services/interceptor/interceptor';
+import { useQuasar } from 'quasar';
 
 const router = useRouter();
 const authStore = useAuthStore();
+
+const $q = useQuasar();
 
 const props = defineProps<{
   tipo: string;
@@ -223,18 +226,30 @@ onMounted(() => {
 });
 
 const onSubmit = async (tipo) => {
+  console.log(tipo)
+  
   try {
-    console.log('')
-    if (tipo.equals("paciente")) {
-      await authStore.registerPaciente(formPaciente.value);
+    if (tipo === "paciente") {
+      const res = await authStore.registerPaciente(formPaciente.value);
+      console.log(res)
+      
+
+      $q.notify({
+          type: 'positive',
+          message: `usuário cadastrado com sucesso`,
+        });
+  
     }
     router.push('/login');
-    if (tipo.equals("profissional")) {
+    if (tipo === "profissional") {
       await authStore.registerProfissional(formPaciente.value);
     }
     router.push('/login');
   } catch (error) {
-    console.error('Erro ao cadastrar usuário:', error);
+    $q.notify({
+            type: 'negative',
+            message: `Falha ao cadastrar usuário`,
+          });
   }
 };
 

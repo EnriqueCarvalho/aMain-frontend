@@ -2,7 +2,7 @@
   <main class="grid grid-col grid-cols-1 lg:grid-cols-5 w-full h-full">
     <div class="col-span-3 h-screen relative flex items-center justify-center overflow-hidden" v-if="$q.screen.gt.sm">
       <!-- <img src="/public/assets/login.png" alt="imagem do login" class="w-[85%] h-auto object-cover" /> -->
-      <svg class="w-[85%] h-auto object-cover" viewBox="0 0 640 671" fill="none" xmlns="http://www.w3.org/2000/svg"
+      <svg  class="w-[85%] h-auto object-cover" viewBox="0 0 640 671" fill="none" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="640" height="671" fill="url(#pattern0_2421_346)" />
         <defs>
@@ -17,9 +17,9 @@
     </div>
     <div class="flex flex-col col-span-2 items-center justify-center w-full gap-5 h-screen lg:h-full">
       <div class="flex flex-col items-center justify-center w-full gap-5 h-full div-login">
-        <div class="bg-card-bg h-5/6 rounded-lg p-15 gap-4">
+        <div class="bg-card-bg h-11/12 rounded-lg w-2/3 p-15 gap-5">
           <div class="flex flex-col justify-start w-full">
-            <div class="flex justify-center w-full pt-2">
+            <div class="flex justify-center w-full pt-7">
               <!-- <img src="/public/assets/logo_app.png" alt="logo da empresa" class="w-[250px] h-auto" /> -->
               <svg class="w-[250px] h-auto" viewBox="0 0 287 103" fill="none" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -52,13 +52,14 @@
             <div class="flex">
               <q-checkbox class="flex w-full justify-center text-slate-600" v-model="manterConectado"
                 :label="$t('login.stayConnected')" />
-              <h2 class="justify-center text-red font-semibold">{{ $t('login.forgetPassword') }}</h2>
+
             </div>
+            <h2 class="justify-center text-red font-semibold">{{ $t('login.forgetPassword') }}</h2>
             <q-btn class="w-full rounded-lg" type="submit" color="primary" text-color="white"
               :label="$t('login.loginBtn')" size="lg" />
           </q-form>
 
-          <div class="p-0 m-0 text-center">
+          <div class="p-7 m-0 text-center">
             Não tem uma conta? <span @click="navigateToRegister()"
               class="cursor-pointer underline text-green-700 font-bold">Registre-se</span>
           </div>

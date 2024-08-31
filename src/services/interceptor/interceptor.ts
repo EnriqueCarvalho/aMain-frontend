@@ -47,9 +47,9 @@ instance.interceptors.request.use(
   (config) => {
     const token = LocalStorageService.get('token');
 
-    console.log('URL -> ', config.baseURL)
+    console.log('URL -> ', config.url)
 
-    if (!config.url?.includes('login') && !config.url?.includes('refresh')) {
+    if (!config.url?.includes('/usuario') && !config.url?.includes('refresh')) {
       config.headers.Authorization = `Bearer ${token}`;
     } else {
       delete config.headers.Authorization;
