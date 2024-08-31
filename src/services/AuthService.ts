@@ -1,46 +1,24 @@
-/* import instance from 'src/services/Interceptor/interceptor';
-import { environment } from '../environment/environment';
-import { EsqueciMinhaSenha, ResetarSenha, IAtualizarToken } from '../types/interfaces/IAuth';
+import instance from 'src/services/interceptor/interceptor';
 
-import Usuario from 'src/types/models/Usuario';
-import LocalStorage from 'src/types/models/LocalStorage';
-import { salvarDadosLocalStorage } from './LocalStorageService';
-import { useUserStore } from 'src/stores/user';
-import { turmasGradeMatricula } from './MatriculaService';
+import { LocalStorageService } from '../services/LocalStorageService';
+import { ILogin } from 'src/types/models/ILogin';
 
-export async function Login(data: Usuario, manterConectado: boolean) {
-  const dados = await instance.post(`${environment.baseUrl}/aluno/login`, data);
-  if (dados) {
-    const storage: LocalStorage = new LocalStorage
-    storage.token = dados.data.accessToken
-    storage.refreshToken = dados.data.refreshToken
-    storage.manterConectado = manterConectado
-    salvarDadosLocalStorage(storage)
-    return dados.data.usuarioInfoDto;
+export async function login(data: ILogin, manterConectado: boolean) {
+  try {
+    const response = await instance.post('/usuario/login', data);
+    if (response.data) {
+      this.user = response.data;
+      this.token = response.data.accessToken;
+
+      if (manterConectado) {
+        LocalStorageService.save('user', this.user);
+        LocalStorageService.save('token', this.token);
+      }
+
+      return this.user;
+    }
+  } catch (error) {
+    console.error('Erro ao fazer login:', error);
+    return false;
   }
-  return false;
 }
-
-export function logout(){
-  turmasGradeMatricula.value = {
-    solicitados: [],
-    outros: []
-  }
-
-  const usuario = useUserStore()
-  usuario.userLogout()
-}
-
-export function ResetarSenhaFunction(data: ResetarSenha) {
-  return instance.post(`${environment.baseUrl}/password-reset`, data);
-}
-
-export function EsqueciMinhaSenhaFunction(data: EsqueciMinhaSenha) {
-  return instance.post(`${environment.baseUrl}/password-forgot`, data);
-}
-export function AtualizarTokenFunction(data: IAtualizarToken) {
-  return instance.post(`${environment.baseUrl}/aluno/refresh`, data);
-}
-
-
- */

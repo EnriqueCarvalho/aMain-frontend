@@ -1,111 +1,90 @@
 <template>
-  <div :class="!$q.screen.lt.sm ? 'col-4' : 'col-12'" class="min-h-full">
-    <q-card
-      class=""
-      :style="
-        !$q.screen.lt.sm
-          ? 'height: 100vh; z-index: 2;'
-          : 'height: 100%; z-index: 2;'
-      "
-    >
-      <q-card-section class="flex flex-col justify-between min-h-full px-0">
-        <div class="flex flex-col gap-4 mt-4 px-10 items-center">
-          <img alt="Logomarca" style="height: 80px; width: 240px" />
-          <q-form
-            class="flex flex-col form no-wrap pt-8 gap-4 w-full"
-            @submit="login"
-          >
-            <q-input
-              dense
-              filled
-              square
-              :bg-color="$q.dark.isActive ? 'black' : 'white-1'"
-              label="Login"
-              data-cy="main-login-login"
-              v-model="usuarioLogin.login"
-              type="text"
-              placeholder="Insira seu login"
-              lazy-rules
-              :rules="[(val: any) => !!val || 'Insira um login']"
-            >
-            </q-input>
-            <q-input
-              dense
-              filled
-              square
-              :bg-color="$q.dark.isActive ? 'black' : 'white-1'"
-              label="Senha"
-              data-cy="main-login-senha"
-              v-model="usuarioLogin.senha"
-              :type="esconderSenha ? 'password' : 'text'"
-              placeholder="Insira sua senha"
-              lazy-rules
-              :rules="[(val: any) => !!val || 'Insira uma senha']"
-            >
-              <template v-slot:append>
-                <q-icon
-                  :name="esconderSenha ? 'visibility_off' : 'visibility'"
-                  class="cursor-pointer"
-                  @click="esconderSenha = !esconderSenha"
-                />
+  <main class="grid grid-col grid-cols-1 lg:grid-cols-5 w-full h-full">
+    <div class="col-span-3 h-screen relative flex items-center justify-center overflow-hidden" v-if="$q.screen.gt.sm">
+      <img src="/public/login.png" alt="imagem do login" class="w-[85%] h-auto object-cover" />
+    </div>
+    <div class="flex flex-col col-span-2 items-center justify-center w-full gap-5 h-screen lg:h-full">
+      <div class="flex flex-col items-center justify-center w-full gap-5 h-full div-login">
+        <div class="bg-card-bg h-5/6 rounded-lg p-10 gap-4">
+          <div class="flex flex-col justify-start w-full">
+            <div class="flex justify-center w-full">
+              <img src="/public/logo_app.png" alt="logo da empresa" class="w-[250px] h-auto" />
+            </div>
+          </div>
+          <div class="pt-10">
+            <h1 class="text-xl text-center font-bold">{{ $t('login.title') }}</h1>
+            <h1 class="text-lg text-center text-dark-light">{{ $t('login.subtitle') }}</h1>
+          </div>
+          <q-form @submit.prevent="onSubmit" class="flex flex-col gap-5 w-full p-3 lg:p-10 items-center justify-center">
+            <GenericInput bg-color="white" color="primary" v-model:model-value="formData.email"
+              :label="$t('login.email')" class="w-full" :rules="[val => !!val || $t('requiredField')]" type="email" />
+            <GenericInput bg-color="white" color="primary" v-model:model-value="formData.password"
+              :label="$t('login.password')" class="w-full" :rules="[val => !!val || $t('requiredField')]"
+              type="password">
+              <template v-slot:prepend>
+                <q-icon name="lock" size="20px" />
               </template>
-            </q-input>
-            <q-checkbox
-              v-model="manterConectado"
-              label="Matenha-me conectado"
-            ></q-checkbox>
-            <div class="column items-end">
-              <a class="esqueci" href="#">Esqueci minha senha</a>
+            </GenericInput>
+            <div class="flex">
+              <q-checkbox class="flex w-full justify-center text-slate-600" v-model="manterConectado"
+                :label="$t('login.stayConnected')" />
+              <h2 class="justify-center text-red font-semibold">{{ $t('login.forgetPassword') }}</h2>
             </div>
-
-            <div class="column items-center">
-              <q-btn
-                label="Entrar"
-                type="submit"
-                color="primary"
-                style="width: 100%"
-                class="q-mt-md"
-                aria-label="Botão de Entrar"
-              />
-            </div>
+            <q-btn class="w-full rounded-lg" type="submit" color="primary" text-color="white"
+              :label="$t('login.loginBtn')" size="lg" />
           </q-form>
-        </div>
 
-        <div
-          class="flex flex-col items-center border-t border-gray-300 w-full text-white text-center"
-        >
-          FOOTER
+          <div>
+
+          </div>
         </div>
-      </q-card-section>
-    </q-card>
-  </div>
+      </div>
+    </div>
+  </main>
 </template>
+
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
+import GenericInput from 'src/components/global/GenericInput.vue';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useAuthStore } from 'src/stores/authstore';
+import { login } from 'src/services/AuthService';
+import { ILogin } from 'src/types/models/ILogin';
 import { useRouter } from 'vue-router';
+import { triggerNegative } from 'src/utils/NotificacaoUtil';
 
 defineOptions({ name: 'TheLogin' });
 
-const $q = useQuasar();
+const { t } = useI18n();
 const $router = useRouter();
 
-const esconderSenha = ref(true);
+const authstore = useAuthStore();
+
+const isPwd = ref(true);
 const manterConectado = ref<boolean>(false);
-const usuarioLogin = ref({
-  login: '',
-  senha: '',
+const formData = ref({
+  email: '',
+  password: ''
 });
 
-const login = async () => {
+
+
+const onSubmit = async () => {
+
   try {
-    $router.push('/dashboard');
-  } catch (err: unknown) {
-    $q.notify({
-      message: 'Usuário e/ou senha incorretos',
-      color: 'negative',
+    const response = await login(formData.value!, manterConectado.value).catch((error) => {
+      throw new Error(error.response?.data.error);
     });
-  }
+    $router.push('/dashboard');
+  } catch (error) {
+    authstore.logout()
+  };
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.div-login {
+  background-color: #A8D5BA;
+  background-image: linear-gradient(180deg, #c4f0d5, #A8D5BA);
+}
+</style>
