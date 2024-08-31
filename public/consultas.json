@@ -1,0 +1,202 @@
+[
+  {
+    "idConsulta": 1,
+    "data": "2024-08-31T09:56:59.628Z",
+    "hora": "2024-08-31T09:56:59.628Z",
+    "anotacoesPsicologo": "Anotações do psicólogo 1",
+    "psicologo": {
+      "idPsicologo": 1,
+      "valorConsulta": 150,
+      "biografia": "Biografia do psicólogo 1",
+      "usuario": {
+        "idUsuario": 1,
+        "nome": "Psicólogo 1",
+        "email": "psicologo1@example.com",
+        "password": "password1",
+        "tipo": "psicologo",
+        "dtNascimento": "1980-01-01T00:00:00.000Z"
+      },
+      "areaAtuacao": {
+        "idAreaAtuacao": 1,
+        "descrArea": "Área de atuação 1"
+      },
+      "crp": 12345
+    },
+    "paciente": {
+      "idPaciente": 1,
+      "publicoAlvo": {
+        "idPublicAlvo": 1,
+        "descrPublico": "Público alvo 1"
+      },
+      "observacoes": "Observações do paciente 1",
+      "reposavel": true,
+      "usuario": {
+        "idUsuario": 2,
+        "nome": "Paciente 1",
+        "email": "paciente1@example.com",
+        "password": "password2",
+        "tipo": "paciente",
+        "dtNascimento": "1990-01-01T00:00:00.000Z"
+      }
+    },
+    "dtCancelamento": null,
+    "hrCancelamento": null,
+    "motivoCancelamento": null,
+    "tipo": "consulta",
+    "endereco": {
+      "bairro": "Bairro 1",
+      "rua": "Rua 1"
+    },
+    "linkMeet": "https://meet.example.com/1"
+  },
+  {
+    "idConsulta": 2,
+    "data": "2024-09-01T10:00:00.000Z",
+    "hora": "2024-09-01T10:00:00.000Z",
+    "anotacoesPsicologo": "Anotações do psicólogo 1",
+    "psicologo": {
+      "idPsicologo": 1,
+      "valorConsulta": 200,
+      "biografia": "Biografia do psicólogo 1",
+      "usuario": {
+        "idUsuario": 1,
+        "nome": "Psicólogo 1",
+        "email": "psicologo1@example.com",
+        "password": "password1",
+        "tipo": "psicologo",
+        "dtNascimento": "1985-02-02T00:00:00.000Z"
+      },
+      "areaAtuacao": {
+        "idAreaAtuacao": 1,
+        "descrArea": "Área de atuação 1"
+      },
+      "crp": 67890
+    },
+    "paciente": {
+      "idPaciente": 2,
+      "publicoAlvo": {
+        "idPublicAlvo": 2,
+        "descrPublico": "Público alvo 2"
+      },
+      "observacoes": "Observações do paciente 2",
+      "reposavel": false,
+      "usuario": {
+        "idUsuario": 3,
+        "nome": "Paciente 2",
+        "email": "paciente2@example.com",
+        "password": "password4",
+        "tipo": "paciente",
+        "dtNascimento": "1995-02-02T00:00:00.000Z"
+      }
+    },
+    "dtCancelamento": null,
+    "hrCancelamento": null,
+    "motivoCancelamento": null,
+    "tipo": "consulta",
+    "endereco": {
+      "bairro": "Bairro 2",
+      "rua": "Rua 2"
+    },
+    "linkMeet": "https://meet.example.com/2"
+  },
+  {
+    "idConsulta": 3,
+    "data": "2024-09-02T11:00:00.000Z",
+    "hora": "2024-09-02T11:00:00.000Z",
+    "anotacoesPsicologo": "Anotações do psicólogo 1",
+    "psicologo": {
+      "idPsicologo": 1,
+      "valorConsulta": 250,
+      "biografia": "Biografia do psicólogo 1",
+      "usuario": {
+        "idUsuario": 1,
+        "nome": "Psicólogo 1",
+        "email": "psicologo1@example.com",
+        "password": "password1",
+        "tipo": "psicologo",
+        "dtNascimento": "1990-03-03T00:00:00.000Z"
+      },
+      "areaAtuacao": {
+        "idAreaAtuacao": 3,
+        "descrArea": "Área de atuação 3"
+      },
+      "crp": 11223
+    },
+    "paciente": {
+      "idPaciente": 3,
+      "publicoAlvo": {
+        "idPublicAlvo": 3,
+        "descrPublico": "Público alvo 3"
+      },
+      "observacoes": "Observações do paciente 3",
+      "reposavel": true,
+      "usuario": {
+        "idUsuario": 4,
+        "nome": "Paciente 3",
+        "email": "paciente3@example.com",
+        "password": "password6",
+        "tipo": "paciente",
+        "dtNascimento": "2000-03-03T00:00:00.000Z"
+      }
+    },
+    "dtCancelamento": null,
+    "hrCancelamento": null,
+    "motivoCancelamento": null,
+    "tipo": "consulta",
+    "endereco": {
+      "bairro": "Bairro 3",
+      "rua": "Rua 3"
+    },
+    "linkMeet": "https://meet.example.com/3"
+  },
+  {
+    "idConsulta": 4,
+    "data": "2024-09-03T12:00:00.000Z",
+    "hora": "2024-09-03T12:00:00.000Z",
+    "anotacoesPsicologo": "Anotações do psicólogo 1",
+    "psicologo": {
+      "idPsicologo": 1,
+      "valorConsulta": 300,
+      "biografia": "Biografia do psicólogo 1",
+      "usuario": {
+        "idUsuario": 1,
+        "nome": "Psicólogo 1",
+        "email": "psicologo1@example.com",
+        "password": "password1",
+        "tipo": "psicologo",
+        "dtNascimento": "1995-04-04T00:00:00.000Z"
+      },
+      "areaAtuacao": {
+        "idAreaAtuacao": 4,
+        "descrArea": "Área de atuação 4"
+      },
+      "crp": 44556
+    },
+    "paciente": {
+      "idPaciente": 4,
+      "publicoAlvo": {
+        "idPublicAlvo": 4,
+        "descrPublico": "Público alvo 4"
+      },
+      "observacoes": "Observações do paciente 4",
+      "reposavel": false,
+      "usuario": {
+        "idUsuario": 5,
+        "nome": "Paciente 4",
+        "email": "paciente4@example.com",
+        "password": "password8",
+        "tipo": "paciente",
+        "dtNascimento": "2005-04-04T00:00:00.000Z"
+      }
+    },
+    "dtCancelamento": null,
+    "hrCancelamento": null,
+    "motivoCancelamento": null,
+    "tipo": "consulta",
+    "endereco": {
+      "bairro": "Bairro 4",
+      "rua": "Rua 4"
+    },
+    "linkMeet": "https://meet.example.com/4"
+  }
+]

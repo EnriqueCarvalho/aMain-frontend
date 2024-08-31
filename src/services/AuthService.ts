@@ -13,7 +13,7 @@ export async function login(data: ILogin, manterConectado: boolean) {
       LocalStorageService.save('user', user);
       LocalStorageService.save('token', token);
 
-      return user;
+      return response.status;
     }
   } catch (error) {
     console.error('Erro ao fazer login:', error);

@@ -1,8 +1,6 @@
 <template>
   <q-header elevated class="text-dark font-bold bg-white p-2">
     <q-toolbar>
-
-
       <q-toolbar-title class="flex justify-end">
         <q-avatar class="mr-2">
           <svg viewBox="0 0 55 54" fill="none" xmlns="http://www.w3.org/2000/svg"

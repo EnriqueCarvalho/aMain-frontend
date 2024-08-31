@@ -105,7 +105,9 @@ const onSubmit = async () => {
     const response = await login(formData.value!, manterConectado.value).catch((error) => {
       throw new Error(error.response?.data.error);
     });
-    $router.push('/dashboard');
+    if (response == 200) {
+      $router.push('/dashboard');
+    }
   } catch (error) {
     authstore.logout()
   };
